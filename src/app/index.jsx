@@ -1,8 +1,8 @@
 console.log("Hello World!");
 
-//import { store } from './store'
+import { store } from './store'
 
-//console.log(store.getState() );
+console.log(store.getState() );
 
 import React from 'react';
 import ReactDOM from 'react-dom';
