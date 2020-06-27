@@ -3,13 +3,14 @@ import React from 'react';
 import { Provider } from 'react-redux';
 //import { ConnectedTaskDetail } from './TaskDetail'
 //import { ConnectedDashboard } from './Dashboard'
-//import { ConnectedNavigation } from './Navigation'
+import { ConnectedNavigation } from './Navigation'
 //import { ConnectedLogin } from './Login'
 //import { ConnectedSignup } from './Signup'
 import { store } from '../store';
-//import { history } from '../store/history';
+import { history } from '../store/history';
 //import { Redirect } from 'react-router';
 import {ConnectedDashboard} from './Dashboard';
+import { Route, Router } from 'react-router-dom';
 
 // const RouteGuard = Component =>({match})=>
 //     !store.getState().session.authenticated ?
@@ -17,11 +18,17 @@ import {ConnectedDashboard} from './Dashboard';
 //         <Component match={match}/>;
 
 export const Main = ()=>(
-    //<Router history={history}>
+    <Router history={history}>
         <Provider store={store}>
             <div>
+                < ConnectedNavigation />
                 {/*DashBoard Goes Here*/}
-                <ConnectedDashboard/>
+                {/*<ConnectedDashboard/>*/}
+                <Route exact
+                       path="/dashboard"
+                       render={ ()=>(<ConnectedDashboard/>) }
+                />
             </div>
         </Provider>
+        </Router>
 );
