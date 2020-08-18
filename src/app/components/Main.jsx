@@ -1,7 +1,7 @@
 import React from 'react';
 //import { Route, Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-//import { ConnectedTaskDetail } from './TaskDetail'
+import { ConnectedTaskDetail } from './TaskDetail'
 //import { ConnectedDashboard } from './Dashboard'
 import { ConnectedNavigation } from './Navigation'
 //import { ConnectedLogin } from './Login'
@@ -24,9 +24,15 @@ export const Main = ()=>(
                 < ConnectedNavigation />
                 {/*DashBoard Goes Here*/}
                 {/*<ConnectedDashboard/>*/}
-                <Route exact
+                <Route
+                       exact
                        path="/dashboard"
                        render={ ()=>(<ConnectedDashboard/>) }
+                />
+                <Route
+                      exact
+                       path="/task/:id"
+                       render={ ({match})=>(<ConnectTaskDetail match={match}/>) }
                 />
             </div>
         </Provider>
